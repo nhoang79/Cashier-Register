@@ -1,0 +1,7 @@
+Menu
+Cash Register
+  --> calculate total
+  --> add tax
+  --> add tips
+  --> return changes (if any)
+UI
