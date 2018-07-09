@@ -1,9 +1,13 @@
-
 import java.text.DecimalFormat;
 
 /**
- *
- * @author Ngan
+ * CashRegisterClass contains methods that:
+ *                                          1. add up item's price
+ *                                          2. calculate tax amount
+ *                                          3. Calculate tips amount (0%, 10%, 15%)
+ *                                          4. Calculate final total
+ *                                          5. Calculate the change when needed
+ * @author Aurora Ngan Hoang
  */
 public class CashRegisterClass {
     
@@ -77,7 +81,6 @@ public class CashRegisterClass {
     * had order, tips total, and tax total. Then, it will add up and display
     * the final total $ that customer needs to pay.
     */
-    
     public double calcFinalTotal(double totalAmt, double tipAmt, double taxAmt)
     {
         this.finalTotal = totalAmt + tipAmt + taxAmt;
@@ -85,10 +88,35 @@ public class CashRegisterClass {
         return this.finalTotal;
     }
     
+    /*calcChange method accepts the amount of money that customer gives in order 
+    * to pay for their orders. Then, it will calculate the change if necessary.
+    */
     public double calcChange(double customerPay)
     {
-        this.changeAmt = customerPay - finalTotal;
-        System.out.println("Change: $" + decimalFormat.format(this.changeAmt));
+        /*Storing the formatted finalTotal amount into totalAmt as String
+         * in order to convert it to double data type
+        */
+        String totalAmt = decimalFormat.format(finalTotal);
+        
+        //Converting the string into double data type 
+        //& store it into this.finalTotal
+        this.finalTotal = Double.parseDouble(totalAmt);
+        
+        //if-else statement to decide whether change is necessary
+        if(customerPay == this.finalTotal)
+        {
+            System.out.println("No Change");
+        }
+        else if (customerPay > finalTotal)
+        {
+           this.changeAmt = customerPay - finalTotal;
+           System.out.println("Change: $" + decimalFormat.format(this.changeAmt)); 
+        }
+        else if(customerPay < finalTotal)
+        {
+            System.out.println("Insufficient payment: Your final total is $" 
+                            + decimalFormat.format(finalTotal) + ".");
+        }
         return this.changeAmt;
     }
     
