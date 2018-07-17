@@ -49,8 +49,10 @@ public class CashRegisterClass {
     public double calcTaxAmt(double totalAmt)
     {
         taxAmt = totalAmt * TAXPERCENT;
-        System.out.println("Tax amount: $" + decimalFormat.format(taxAmt));
-        return taxAmt;
+        System.out.println("Tax amount: $" + decimalFormat.format(taxAmt)); //WHY DO YOU HAVE THESE PRINT HERE? IF YOU WANT TO PRINT DATA, CREATE GET METHODS. PRINT DATA OUTPUT ON YOUR MAIN. 
+                                                                            //THIS CLASS WILL DO THE CALCULATION ONLY.
+        return taxAmt;  //DO NOT RETURN PRIVATE DATA. this method should just update taxAmt. if you want to get taxAmt after this calculation, call get method.
+                        //similarly do these to other methods.
     }
    
     /** CalcTipAmt method accepts the total $ and the tip % that customer choose 
