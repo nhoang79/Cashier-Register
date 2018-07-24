@@ -32,26 +32,23 @@ public class CashRegisterClass {
 
     //add method sums up the total amount of money of the items that customer 
     //had ordered
-    public double add(double itemValue)
+    public void add(double itemValue)
     {
         totalAmt = totalAmt + itemValue;
-        return totalAmt;
     }
     
     //CalcTaxAmt method accepts the total amount of money of what customer had
     //ordered
-    public double calcTaxAmt(double totalAmt)
+    public void calcTaxAmt(double totalAmt)
     {
         taxAmt = totalAmt * TAXPERCENT;
-        return taxAmt;  //DO NOT RETURN PRIVATE DATA. this method should just update taxAmt. if you want to get taxAmt after this calculation, call get method.
-                        //similarly do these to other methods.
     }
    
     /** CalcTipAmt method accepts the total $ and the tip % that customer choose 
      *  to tip.
      * 
      */
-    public double calcTipAmt(double total, double tipPercent)
+    public void calcTipAmt(double total, double tipPercent)
     {
         //Converting tipPercent into decimals for tip total calculation
         tipPercent = (tipPercent/100);
@@ -67,23 +64,21 @@ public class CashRegisterClass {
                 {
                     this.tipsAmt = total * tipPercent;
                 }
-        return this.tipsAmt;
     }
     
     /*CalcFinalTotal method accepts total amount of money of items that customer
     * had order, tips total, and tax total. Then, it will add up and display
     * the final total $ that customer needs to pay.
     */
-    public double calcFinalTotal(double totalAmt, double tipAmt, double taxAmt)
+    public void calcFinalTotal(double totalAmt, double tipAmt, double taxAmt)
     {
         this.finalTotal = totalAmt + tipAmt + taxAmt;
-        return this.finalTotal;
     }
     
     /*calcChange method accepts the amount of money that customer gives in order 
     * to pay for their orders. Then, it will calculate the change if necessary.
     */
-    public double calcChange(double customerPay)
+    public void calcChange(double customerPay)
     {
         /*Storing the formatted finalTotal amount into totalAmt as String
          * in order to convert it to double data type
@@ -109,7 +104,6 @@ public class CashRegisterClass {
             System.out.println("Insufficient payment: Your final total is $" 
                             + decimalFormat.format(finalTotal) + ".");
         }
-        return this.changeAmt;
     }
     
     //getResults display all the calculations needed for the transactions
