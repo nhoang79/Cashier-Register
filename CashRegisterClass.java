@@ -38,19 +38,11 @@ public class CashRegisterClass {
         return totalAmt;
     }
     
-    //getTotalAmount shows the total amount before tips & tax on output screen
-    public void getTotalAmt()
-    {
-        System.out.println("Total:  $" + decimalFormat.format(this.totalAmt));
-    }
-    
     //CalcTaxAmt method accepts the total amount of money of what customer had
     //ordered
     public double calcTaxAmt(double totalAmt)
     {
         taxAmt = totalAmt * TAXPERCENT;
-        System.out.println("Tax amount: $" + decimalFormat.format(taxAmt)); //WHY DO YOU HAVE THESE PRINT HERE? IF YOU WANT TO PRINT DATA, CREATE GET METHODS. PRINT DATA OUTPUT ON YOUR MAIN. 
-                                                                            //THIS CLASS WILL DO THE CALCULATION ONLY.
         return taxAmt;  //DO NOT RETURN PRIVATE DATA. this method should just update taxAmt. if you want to get taxAmt after this calculation, call get method.
                         //similarly do these to other methods.
     }
@@ -75,7 +67,6 @@ public class CashRegisterClass {
                 {
                     this.tipsAmt = total * tipPercent;
                 }
-        System.out.println("Tips total: $" + decimalFormat.format(this.tipsAmt));
         return this.tipsAmt;
     }
     
@@ -86,7 +77,6 @@ public class CashRegisterClass {
     public double calcFinalTotal(double totalAmt, double tipAmt, double taxAmt)
     {
         this.finalTotal = totalAmt + tipAmt + taxAmt;
-        System.out.println("Final Total: $" + decimalFormat.format(this.finalTotal));
         return this.finalTotal;
     }
     
@@ -120,6 +110,15 @@ public class CashRegisterClass {
                             + decimalFormat.format(finalTotal) + ".");
         }
         return this.changeAmt;
+    }
+    
+    //getResults display all the calculations needed for the transactions
+    public void getResults()
+    {
+        System.out.println("Total (without tax): $" + decimalFormat.format(this.totalAmt));
+        System.out.println("Tax amount: $" + decimalFormat.format(taxAmt));
+        System.out.println("Tips total: $" + decimalFormat.format(this.tipsAmt));
+        System.out.println("Final Total: $" + decimalFormat.format(this.finalTotal));
     }
     
     
