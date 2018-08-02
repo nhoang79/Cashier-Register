@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+/*
+ * Menu Class should: *           
+ *            1. Display the item and its price next to it for every item 
+ *               the customer selects
+ *            2. Add up items chosen from the menu
+ */
+
+/**
+ *
+ * @author Ngan
+ */
+public class Menu {
+        
+        int totalItemSelected;
+        int itemNumber;
+        
+
+    //Constructor that accepts the name of customer & display the menu
+    public Menu(String name){
+        System.out.println("Welcome " + name + "!\n");
+        System.out.println("OUR MENU ARE AS FOLLOWED: ");
+        System.out.println("1. Signature Tea ($4.00) \n2. Milk Tea"
+                           + " ($4.25)\n3. Smoothie ($4.50)"
+                           + "\n4. Ice Cream ($4.75)\n");
+    }
+    
+    /*beginOrder method will: 
+    *                       1. Ask the user to enter the number that corresponds 
+    *                          to the item that user wants from the menu
+    *                       2. Accepts user's input
+    *                       3. Checks if userInput is valid/invalid
+    *                       4. Shows user what he/she had chosen with the price
+    *                          of that chosen item
+    *                       5. Add ups the total number of item selected
+    * 
+    */ 
+    
+    public void beginOrder(){
+        do
+        {
+        System.out.print("Please enter the number that corresponds to the item "
+                          + "that you would like to order: ");
+        Scanner keyboard2 = new Scanner(System.in);
+        itemNumber = keyboard2.nextInt();
+        if(itemNumber == 0)
+        {
+            System.out.println("You have ordered one Signature Tea for $4.00.");
+            totalItemSelected++;
+        }
+        else if (itemNumber == 2)
+            {
+                System.out.println("You have ordered one Milk Tea for $4.25.");
+                totalItemSelected++;
+            }
+            
+        else if (itemNumber == 3)
+            {
+                System.out.println("You have ordered one Smoothie for $4.50.");
+                totalItemSelected++;
+            }
+            
+        else if (itemNumber == 4)
+            {
+                System.out.println("You have ordered one Ice Cream for $4.75.");
+                totalItemSelected++;
+            }
+        }
+        while (itemNumber == 0 || itemNumber <= 4);
+     }
+    
+
+    //check method that print out how many items user had chosen
+    public void check(){
+        System.out.println("\nYou have order a total of "
+                            + totalItemSelected + " item(s).");
+    }
+    
+    
+}
