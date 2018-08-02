@@ -49,6 +49,11 @@ public class Menu {
             System.out.println("You have ordered one Signature Tea for $4.00.");
             totalItemSelected++;
         }
+        if(itemNumber == 1)
+        {
+            System.out.println("You have ordered one Signature Tea for $4.00.");
+            totalItemSelected++;
+        }
         else if (itemNumber == 2)
             {
                 System.out.println("You have ordered one Milk Tea for $4.25.");
@@ -70,7 +75,10 @@ public class Menu {
         while (itemNumber == 0 || itemNumber <= 4);
      }
     
-
+    
+    
+    
+    
     //check method that print out how many items user had chosen
     public void check(){
         System.out.println("\nYou have order a total of "
