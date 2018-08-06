@@ -30,25 +30,20 @@ public class Menu {
     *                       1. Ask the user to enter the number that corresponds 
     *                          to the item that user wants from the menu
     *                       2. Accepts user's input
-    *                       3. Checks if userInput is valid/invalid
-    *                       4. Shows user what he/she had chosen with the price
+    *                       3. Shows user what he/she had chosen with the price
     *                          of that chosen item
-    *                       5. Add ups the total number of item selected
+    *                       4. Add ups the total number of item(s) selected
     * 
     */ 
     
     public void beginOrder(){
         do
-        {
+    {
         System.out.print("Please enter the number that corresponds to the item "
                           + "that you would like to order: ");
         Scanner keyboard2 = new Scanner(System.in);
         itemNumber = keyboard2.nextInt();
-        if(itemNumber == 0)
-        {
-            System.out.println("You have ordered one Signature Tea for $4.00.");
-            totalItemSelected++;
-        }
+        
         if(itemNumber == 1)
         {
             System.out.println("You have ordered one Signature Tea for $4.00.");
@@ -71,9 +66,11 @@ public class Menu {
                 System.out.println("You have ordered one Ice Cream for $4.75.");
                 totalItemSelected++;
             }
-        }
-        while (itemNumber == 0 || itemNumber <= 4);
-     }
+        
+    }
+        while (itemNumber > 0 && itemNumber <= 4);
+     
+    }
     
     
     
