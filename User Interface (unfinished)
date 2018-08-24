@@ -1,0 +1,115 @@
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.event.*;
+public class UserInterface {
+				private int itemCount = 0; 
+				
+				public void getItemCount()
+				{
+					itemCount++;
+				}
+				
+				public void showItemCount() {
+					System.out.println("Total Items: " + itemCount);
+				}
+	
+	public static void main(String[] args) {
+		
+				UserInterface objectOne = new UserInterface();
+				
+				//Creating Initial Frame
+				JFrame frame = new JFrame("Welcome!");
+				frame.setVisible(true);		
+				frame.setSize(300, 250);
+				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				JMenuBar menu = new JMenuBar();
+				frame.setJMenuBar(menu);
+				
+				//adding panel that will shows inside of the frame
+				JPanel panel = new JPanel();
+				frame.add(panel);
+				
+				JButton menuTitle = new JButton("~~~~~~~~~~~~~~ M E N U ~~~~~~~~~~~~~~");
+				panel.add(menuTitle);
+				
+				JButton item1 = new JButton("1. Signature Milk Tea ---- $4.00");
+				panel.add(item1);
+				
+				JButton item2 = new JButton("2. Milk Tea ---- $4.25");
+				panel.add(item2);
+				
+				JButton item3 = new JButton("3. Smoothie ---- $4.50");
+				panel.add(item3);
+				
+				JButton item4 = new JButton("4. Ice Cream ---- $4.75");
+				panel.add(item4);
+				
+				JButton finished = new JButton("~~~~~~~~~~~~ Finish Order ~~~~~~~~~~~~");
+				panel.add(finished);
+				
+				//CustomerAction class include what will happen when item1 button is clicked
+				class itemOne implements ActionListener{
+					public void actionPerformed(ActionEvent n) {
+						objectOne.getItemCount();
+						objectOne.showItemCount();
+					}
+				}
+				item1.addActionListener(new itemOne());
+				
+				//CustomerAction class include what will happen when item2 button is clicked
+				class itemTwo implements ActionListener{
+					public void actionPerformed(ActionEvent n) {
+						objectOne.getItemCount();
+						objectOne.showItemCount();
+					}
+				}
+				item2.addActionListener(new itemTwo());
+				
+				//CustomerAction class include what will happen when item3 button is clicked
+				class itemThree implements ActionListener{
+					public void actionPerformed(ActionEvent n) {
+						objectOne.getItemCount();
+						objectOne.showItemCount();
+					}
+				}
+				item3.addActionListener(new itemThree());
+				
+				//CustomerAction class include what will happen when item4 button is clicked
+				class itemFour implements ActionListener{
+					public void actionPerformed(ActionEvent n) {
+						objectOne.getItemCount();
+						objectOne.showItemCount();
+					}
+				}
+				item4.addActionListener(new itemFour());
+				
+				
+				
+				//CustomerAction class include what will happen when Finish Order button is clicked
+				class finishOrder implements ActionListener{
+					public void actionPerformed(ActionEvent n) {
+						//Menu Frame Pops Up
+						JFrame frame2 = new JFrame("Receipt");
+						frame2.setVisible(true);
+						frame2.setSize(500, 500);
+						frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+						
+						//Create a panel
+						JPanel panel2 = new JPanel();
+						frame2.add(panel2);
+						
+						JLabel receipt = new JLabel("Receipt");
+						
+					}
+				}
+				finished.addActionListener(new finishOrder());
+				
+				
+		
+	}
+
+	
+}
